@@ -137,3 +137,6 @@ __pycache__
 /dist
 /types
 /models
+
+# Mac specific files
+.DS_Store
