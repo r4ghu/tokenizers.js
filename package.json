@@ -1,0 +1,92 @@
+{
+  "name": "@r4ghu/tokenizers",
+  "version": "1.0.0",
+  "description": "State-of-the-art Tokenizers for the web. Run Tokenizers directly in your browser, with no need for a server! This is a lightweight port from 🤗 Transformers.js",
+  "main": "./src/tokenizers.js",
+  "types": "./types/tokenizers.d.ts",
+  "type": "module",
+  "exports": {
+    "node": {
+      "import": {
+        "types": "./types/tokenizers.d.ts",
+        "default": "./dist/tokenizers.mjs"
+      },
+      "require": {
+        "types": "./types/tokenizers.d.ts",
+        "default": "./dist/tokenizers.cjs"
+      }
+    },
+    "default": {
+      "types": "./types/tokenizers.d.ts",
+      "default": "./dist/tokenizers.js"
+    }
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typegen": "tsc ./src/tokenizers.js --allowJs --declaration --emitDeclarationOnly --declarationMap --outDir types",
+    "dev": "webpack serve --no-client-overlay",
+    "build": "webpack && npm run typegen",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose",
+    "readme": "python ./docs/scripts/build_readme.py",
+    "docs-api": "node ./docs/scripts/generate.js",
+    "docs-preview": "doc-builder preview tokenizers.js ./docs/source/ --not_python_module",
+    "docs-build": "doc-builder build tokenizers.js ./docs/source/ --not_python_module --build_dir ./docs/build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r4ghu/tokenizers.js.git"
+  },
+  "keywords": [
+    "tokenizers",
+    "tokenizers.js",
+    "huggingface",
+    "hugging face",
+    "machine learning",
+    "deep learning",
+    "artificial intelligence",
+    "AI",
+    "ML"
+  ],
+  "author": "Hugging Face & Sri Raghu Malireddi",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/r4ghu/tokenizers.js/issues"
+  },
+  "homepage": "https://github.com/r4ghu/tokenizers.js#readme",
+  "dependencies": {
+    "@huggingface/jinja": "^0.3.0",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "catharsis": "github:xenova/catharsis",
+    "jest": "^29.5.0",
+    "jest-environment-node": "^29.5.0",
+    "jsdoc-to-markdown": "^8.0.1",
+    "prettier": "3.3.3",
+    "typescript": "^5.2.2",
+    "wavefile": "^11.0.0",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3"
+  },
+  "files": [
+    "src",
+    "dist",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "browser": {
+    "fs": false,
+    "path": false,
+    "url": false,
+    "sharp": false
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "jsdelivr": "./dist/tokenizers.min.js",
+  "unpkg": "./dist/tokenizers.min.js"
+}
